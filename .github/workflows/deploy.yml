@@ -38,6 +38,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: "build/libs/*.jar"
           target: "/var/html/www/de/ole-jansen/push-notification/"
+          strip_components: 2
 
       - name: Rename jar & restart service
         uses: appleboy/ssh-action@v1.2.0
