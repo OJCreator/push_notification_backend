@@ -30,21 +30,14 @@ jobs:
           source: "build/libs/*.jar"
           target: "/var/html/www/de/ole-jansen/push-notification/"
 
-      - name: Rename jar
+      - name: Rename jar & restart service
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
+            rm -f /var/html/www/de/ole-jansen/push-notification/app.jar
             mv /var/html/www/de/ole-jansen/push-notification/*.jar /var/html/www/de/ole-jansen/push-notification/app.jar
-
-      - name: Restart service on server
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          script: |
             sudo systemctl restart push-notification
             sudo systemctl status push-notification --no-pager
