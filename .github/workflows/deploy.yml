@@ -28,7 +28,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: "build/libs/*.jar"
-          target: "/var/html/www/de/ole-jansen/push-notification/app.jar"
+          target: "/var/html/www/de/ole-jansen/push-notification/"
 
       - name: Restart service on server
         uses: appleboy/ssh-action@v1.2.0
