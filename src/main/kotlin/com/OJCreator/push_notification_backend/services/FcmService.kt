@@ -38,7 +38,7 @@ class FcmService {
         try {
             // Senden der Nachricht über das Firebase Admin SDK
             val response = FirebaseMessaging.getInstance().send(message)
-            println("Erfolgreich Nachricht gesendet: " + response)
+            println("Erfolgreich Nachricht gesendet: $response")
             return response
         } catch (e: FirebaseMessagingException) {
             System.err.println("Fehler beim Senden der Nachricht: " + e.message)
