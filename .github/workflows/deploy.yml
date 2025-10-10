@@ -18,8 +18,11 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: Install Gradle
+        run: sudo apt-get install gradle -y
+
       - name: Build with Gradle
-        run: ./gradlew clean bootJar
+        run: gradle clean bootJar
 
       - name: Copy jar to server
         uses: appleboy/scp-action@v0.1.7
