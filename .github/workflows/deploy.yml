@@ -18,9 +18,6 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Install Gradle
-        run: sudo apt-get install gradle -y
-
       - name: Build with Gradle
         run: gradle clean bootJar
 
