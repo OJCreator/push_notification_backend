@@ -18,6 +18,12 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: Write firebase config
+        run: |
+          mkdir -p src/main/resources/static
+          echo '${{ secrets.FIREBASE_CONFIG }}' > src/main/resources/static/check24-pushnotification-firebase-adminsdk-fbsvc-79dc99eb1c.json
+
+
       - name: Build with Gradle
         run: gradle clean bootJar
 
