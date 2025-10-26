@@ -54,4 +54,4 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             mv /var/html/www/de/ole-jansen/push-notification/*.jar /var/html/www/de/ole-jansen/push-notification/app.jar
-            systemctl restart push-notification
+            sudo systemctl restart push-notification
